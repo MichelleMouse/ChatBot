@@ -28,9 +28,9 @@ public:
   ~ChatBot();
 
   //Rule of Five
-  ChatBot(const ChatBot &source);                       //Copy Constructor
-  ChatBot &operator=(const ChatBot &source);            //Copy Assigment Operator
-  ChatBot(ChatBot &&source) noexcept;                   //Move Constructor
+  ChatBot(const ChatBot &source);                 //Copy Constructor
+  ChatBot &operator=(const ChatBot &source);      //Copy Assigment Operator
+  ChatBot(ChatBot &&source) noexcept;             //Move Constructor
   ChatBot &operator=(ChatBot &&source) noexcept;  //Move Assigment Operator
 
   //Getters & Setters

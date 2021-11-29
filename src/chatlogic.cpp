@@ -12,33 +12,10 @@
 #include "chatlogic.h"
 
 //Constructor
-ChatLogic::ChatLogic()
-{
-  //// STUDENT CODE
-  ////
-
-  // create instance of chatbot
-  _chatBot = new ChatBot("../images/chatbot.png");
-
-  // add pointer to chatlogic so that chatbot answers can be passed on to the GUI
-  _chatBot->SetChatLogicHandle(this);
-
-  ////
-  //// EOF STUDENT CODE
-}
+ChatLogic::ChatLogic() { }
 
 //Destructor
-ChatLogic::~ChatLogic()
-{
-  //// STUDENT CODE
-  ////
-
-  // delete chatbot instance
-  delete _chatBot;
-
-  ////
-  //// EOF STUDENT CODE
-}
+ChatLogic::~ChatLogic() { }
 
 //Template
 template <typename T>
@@ -172,9 +149,6 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     return;
   }
 
-  //// STUDENT CODE
-  ////
-
   //Identifies root node
   GraphNode *rootNode = nullptr;
   for (auto it = std::begin(_nodes); it != std::end(_nodes); ++it)
@@ -194,12 +168,11 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     }
   }
 
-  //Adds chatbot to graph root node
-  _chatBot->SetRootNode(rootNode);
-  rootNode->MoveChatbotHere(_chatBot);
-
-  ////
-  //// EOF STUDENT CODE
+  //Moves chatbot to graph root node
+  ChatBot _localChatBot("../images/chatbot.png"); //Creates a local instance of chatbot
+  _localChatBot.SetChatLogicHandle(this);
+  _localChatBot.SetRootNode(rootNode);
+  rootNode->MoveChatbotHere(std::move(_localChatBot));
 }
 
 void ChatLogic::SetPanelDialogHandle(ChatBotPanelDialog *panelDialog)
