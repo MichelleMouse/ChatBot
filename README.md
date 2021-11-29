@@ -5,7 +5,9 @@ Welcome to the third project of Udacity's C++ Nanodegree!
 
 In this project, I optimised a chatbot using modern C++ memory management tools (smart pointers, move semantics and correct memory allocation/deallocation).
 
-## Environment
+<p align="center"><img src="images/demo.png" width="300" height="500" alt="Image of the ChatBot application"/></p>
+
+## EnvironmentÂ
 👉 macOS 12.0.1 Monterey with Intel Core i7 chip  
 👉 Homebrew 3.3.5  
 👉 cMake 3.21.3  
