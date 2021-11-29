@@ -49,9 +49,10 @@ ChatBot::ChatBot(const ChatBot &source)
 
   std::cout << "Size of _image is " << sizeof(*_image) << std::endl;
 
-  _image = new wxBitmap(*source._image);
-  *_chatLogic = *source._chatLogic;
-  *_rootNode = *source._rootNode;
+  _image = new wxBitmap();
+  *_image = *source._image;
+  _chatLogic = source._chatLogic;
+  _rootNode = source._rootNode;
 
   _chatLogic->SetChatbotHandle(this);
 }
@@ -64,9 +65,10 @@ ChatBot &ChatBot::operator=(const ChatBot &source)
   //Protectio against self-assignment
   if (this != &source)
   {
-    _image = new wxBitmap(*source._image);
-    *_chatLogic = *source._chatLogic;
-    *_rootNode = *source._rootNode;
+    _image = new wxBitmap();
+    *_image = *source._image;
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
 
     _chatLogic->SetChatbotHandle(this);
   }
