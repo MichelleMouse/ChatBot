@@ -18,11 +18,11 @@ private:
   GraphNode *_rootNode;
   ChatLogic *_chatLogic;
 
-  // proprietary functions
+  //Proprietary functions
   int ComputeLevenshteinDistance(std::string s1, std::string s2);
 
 public:
-  //Constructors and Destructor
+  //Constructor & Destructor
   ChatBot();                     //Constructor WITHOUT memory allocation
   ChatBot(std::string filename); //Constructor WITH memory allocation
   ~ChatBot();

@@ -16,11 +16,11 @@ private:
   std::unique_ptr<ChatLogic> _chatLogic;
 
 public:
-  //Constructor and Destructor
+  //Constructor & Destructor
   ChatBotPanelDialog(wxWindow *parent, wxWindowID id);
   ~ChatBotPanelDialog();
 
-  //Getters and Setters
+  //Getters & Setters
   ChatLogic *GetChatLogicHandle() { return _chatLogic.get(); }
 
   //Events
@@ -35,46 +35,46 @@ public:
   DECLARE_EVENT_TABLE()
 };
 
-// dialog item shown in ChatBotPanelDialog
+//Dialog item shown in ChatBotPanelDialog
 class ChatBotPanelDialogItem : public wxPanel
 {
 private:
-  // control elements
+  //Control elements
   wxStaticBitmap *_chatBotImg;
   wxStaticText *_chatBotTxt;
 
 public:
-  // constructor / destructor
+  //Constructor & Destructor
   ChatBotPanelDialogItem(wxPanel *parent, wxString text, bool isFromUser);
 };
 
-// frame containing all control elements
+//Frame containing all control elements
 class ChatBotFrame : public wxFrame
 {
 private:
-  // control elements
+  //Control elements
   ChatBotPanelDialog *_panelDialog;
   wxTextCtrl *_userTextCtrl;
 
-  // events
+  //Events
   void OnEnter(wxCommandEvent &WXUNUSED(event));
 
 public:
-  // constructor / desctructor
+  //Constructor & Destructor
   ChatBotFrame(const wxString &title);
 };
 
-// control panel for background image display
+//Control panel for background image display
 class ChatBotFrameImagePanel : public wxPanel
 {
-  // control elements
+  //Control elements
   wxBitmap _image;
 
 public:
-  // constructor / desctructor
+  //Constructor & Destructor
   ChatBotFrameImagePanel(wxFrame *parent);
 
-  // events
+  //Events
   void paintEvent(wxPaintEvent &evt);
   void paintNow();
   void render(wxDC &dc);
@@ -82,11 +82,11 @@ public:
   DECLARE_EVENT_TABLE()
 };
 
-// wxWidgets app that hides main()
+//wxWidgets app that hides main()
 class ChatBotApp : public wxApp
 {
 public:
-  // events
+  //Events
   virtual bool OnInit();
 };
 

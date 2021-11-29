@@ -131,46 +131,46 @@ void ChatBot::ReceiveMessageFromUser(std::string message)
     }
   }
 
-  // select best fitting edge to proceed along
+  //Selects best fitting edge to proceed along
   GraphNode *newNode;
   if (levDists.size() > 0)
   {
-    // sort in ascending order of Levenshtein distance (best fit is at the top)
+    //Sorts in ascending order of Levenshtein distance (best fit is at the top)
     std::sort(levDists.begin(), levDists.end(), [](const EdgeDist &a, const EdgeDist &b) { return a.second < b.second; });
     newNode = levDists.at(0).first->GetChildNode(); // after sorting the best edge is at first position
   }
   else
   {
-    // go back to root node
+    //Goes back to root node
     newNode = _rootNode;
   }
 
-  // tell current node to move chatbot to new node
+  //Tells current node to move chatbot to new node
   _currentNode->MoveChatbotToNewNode(newNode);
 }
 
 void ChatBot::SetCurrentNode(GraphNode *node)
 {
-  // update pointer to current node
+  //Updates pointer to current node
   _currentNode = node;
 
-  // select a random node answer (if several answers should exist)
+  //Selects a random node answer (if several answers should exist)
   std::vector<std::string> answers = _currentNode->GetAnswers();
   std::mt19937 generator(int(std::time(0)));
   std::uniform_int_distribution<int> dis(0, answers.size() - 1);
   std::string answer = answers.at(dis(generator));
 
-  // send selected node answer to user
+  //Sends selected node answer to user
   _chatLogic->SendMessageToUser(answer);
 }
 
 int ChatBot::ComputeLevenshteinDistance(std::string s1, std::string s2)
 {
-  // convert both strings to upper-case before comparing
+  //Converts both strings to upper-case before comparing
   std::transform(s1.begin(), s1.end(), s1.begin(), ::toupper);
   std::transform(s2.begin(), s2.end(), s2.begin(), ::toupper);
 
-  // compute Levenshtein distance measure between both strings
+  //Computes Levenshtein distance measure between both strings
   const size_t m(s1.size());
   const size_t n(s2.size());
 
