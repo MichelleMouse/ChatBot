@@ -3,6 +3,7 @@
 <TYPE:NODE><ID:0><ANSWER:Welcome! My name is MemBot. You can ask me about things related to memory management in C++. Possible topics are 'pointers' and 'the C++ memory model'. What would you like to talk about?>
 
 <TYPE:NODE><ID:1><ANSWER:Great! Let's talk about pointers. In computer science, a pointer is a special value whose meaning is a memory address. This address can contain either data, such as variables or objects, but also program codes (instructions). By dereferencing the pointer it is possible to access the data or the code. Among other things, pointers are used to manage dynamic memory. Other topics around pointers you can ask about are 'smart pointers' and 'nullptr'>
+//<TYPE:NODE><ID:8><ANSWER:Awesome! So pointers are a special type of variable that saves the memory address of an object gibing the programmer a better control over how the program uses memory. To access the data in the pointer, you need to dereferencing it using * in front of the pointer, the dereferencing operator. Want to learn more? Ask me about 'smart pointers' and 'null pointers or nullptr'>
 
 <TYPE:NODE><ID:2><ANSWER:When instantiating variables, programmers can choose wether to do this on the heap, on the stack or in static memory. Do you want to know more about those two concepts? Simply ask me about 'heap', 'stack' or 'static'.>
 
